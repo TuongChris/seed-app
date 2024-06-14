@@ -1,21 +1,9 @@
-function navigateToPage(pageNumber) {
-  console.log("Navigating to page", pageNumber);
-  document.querySelectorAll("#introduction .page").forEach((page) => {
-    page.classList.remove("active");
-  });
-  document.getElementById("page" + pageNumber).classList.add("active");
-}
-
 document.addEventListener("DOMContentLoaded", function () {
   if (!localStorage.getItem("hasVisited")) {
-    console.log("First visit, showing introduction");
     localStorage.setItem("hasVisited", "true");
-    document.getElementById("introduction").style.display = "block";
-    document.getElementById("mainContent").style.display = "none";
+    window.location.href = "/introduction.html";
   } else {
-    console.log("Returning visitor, showing main content");
-    document.getElementById("introduction").style.display = "none";
-    document.getElementById("mainContent").style.display = "block";
+    return;
   }
 });
 
