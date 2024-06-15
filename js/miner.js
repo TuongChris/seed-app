@@ -59,7 +59,7 @@ function claimCoins() {
 // Hàm để cập nhật trạng thái của nút Claim
 function updateClaimButtonState() {
   if (claimTimer > 0) {
-    claimButton.innerHTML = `<img src="/images/time.png" alt="clock_icon" class="miner_btn_img">
+    claimButton.innerHTML = `<img src="./images/time.png" alt="clock_icon" class="miner_btn_img">
                              <p class="miner_btn_text">${formatTime(
                                claimTimer
                              )}</p>`;

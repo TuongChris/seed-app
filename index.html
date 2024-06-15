@@ -3,44 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      .page {
-        display: none;
-      }
-      .page.active {
-        display: block;
-      }
-    </style>
+    <title>Seed App</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
     <div class="introduction_page page active">
-      <div class="page1 page active">
-        <p>day la page 1</p>
-        <button onclick="navigateToPage(2)">start</button>
+      <div class="page1 page active introduction_page">
+        <div class="page_welcome">
+          <img src="./images/diamond.png" alt="diamond" />
+          <p class="page_wel_text">
+            Where hidden green diamonds (GDM) will be mined.
+          </p>
+        </div>
+        <button class="btn_nav" onclick="navigateToPage(2)">
+          <span class="btn_nav_text">Create</span>
+        </button>
       </div>
-      <div class="page2 page">
-        <p>day la page 2</p>
-        <button onclick="navigateToPage(3)">next</button>
+      <div class="page2 page introduction_page">
+        <div class="page_welcome">
+          <img src="./images/truck.png" alt="truck" />
+          <p class="page_wel_text">You have a miner. Let's launch it!</p>
+        </div>
+        <button class="btn_nav" onclick="navigateToPage(3)">
+          <span class="btn_nav_text">Start</span>
+        </button>
       </div>
-      <div class="page3 page">
-        <p>day la page 3</p>
-        <button onclick="claim()">claim</button>
+      <div class="page3 page introduction_page">
+        <div class="page_welcome">
+          <p class="page_welcome_reward_title">You Receive a Reward</p>
+          <div class="page_welcome_reward">
+            <div class="fl_row">
+              <img
+                src="./images/diamond.png"
+                alt="diamond2"
+                class="img_daimond_mini"
+              />
+              <p class="page_welcome_reward_number">0.010250</p>
+            </div>
+          </div>
+          <p class="page_welcome_reward_text">
+            Congratulations on reaching rank 167. Please add more new friends to
+            receive USDT and GDM prizes.
+          </p>
+        </div>
+        <button onclick="claim()" class="btn_nav">
+          <span class="btn_nav_text">Claim</span>
+        </button>
       </div>
     </div>
+
     <div class="main_page page">
       <div class="header">
         <p class="username_text">Username</p>
-        <div class="page_welcome_reward">
-          <div class="fl_row">
-            <img
-              src="./images/diamond.png"
-              alt="diamond2"
-              class="img_daimond_mini"
-            />
-            <h1 id="totalCoins" class="page_welcome_reward_number"></h1>
-          </div>
+        <div class="fl_row">
+          <img
+            src="./images/diamond.png"
+            alt="diamond2"
+            class="img_daimond_mini"
+          />
+          <h1 id="totalCoins" class="page_welcome_reward_number"></h1>
         </div>
         <div class="fl_row last_claimed_text">
           <p>
@@ -197,92 +218,84 @@
 
         <!-- miner tab  -->
         <div class="content active">
-          <div class="miner_container">
-            <div class="miner_top">
-              <div class="miner_top_icon_event">
-                <button onclick="openEvent()" class="miner_icon_ctn">
+          <div class="miner_top">
+            <div class="miner_top_icon_event">
+              <button onclick="openEvent()" class="miner_icon_ctn">
+                <img
+                  src="./images/event.png"
+                  alt="event_icon"
+                  class="miner_icon"
+                />
+              </button>
+              <p class="miner_icon_text">Event</p>
+            </div>
+            <div class="icon_miner_group">
+              <div class="miner_top_icon_daily">
+                <button onclick="openDaily()" class="miner_icon_ctn">
                   <img
-                    src="./images/event.png"
-                    alt="event_icon"
+                    src="./images/daily.png"
+                    alt="daily_icon"
                     class="miner_icon"
                   />
                 </button>
-                <p class="miner_icon_text">Event</p>
+                <p class="miner_icon_text">Daily</p>
               </div>
-              <div class="icon_miner_group">
-                <div class="miner_top_icon_daily">
-                  <button onclick="openDaily()" class="miner_icon_ctn">
-                    <img
-                      src="./images/daily.png"
-                      alt="daily_icon"
-                      class="miner_icon"
-                    />
-                  </button>
-                  <p class="miner_icon_text">Daily</p>
-                </div>
-                <div class="miner_top_icon_rank">
-                  <button onclick="openArea()" class="miner_icon_ctn">
-                    <img
-                      src="./images/ranking.png"
-                      alt="rank_icon"
-                      class="miner_icon"
-                    />
-                  </button>
-                  <p class="miner_icon_text">Rank</p>
-                </div>
-              </div>
-            </div>
-            <div class="miner_mid_container">
-              <div class="miner_mid_ctn">
-                <div class="miner_text_ctn">
-                  <p class="miner_text">Minner</p>
-                  <p class="miner_current_mining" id="currentMining"></p>
-                </div>
-                <div class="mining_truck_img_ctn">
+              <div class="miner_top_icon_rank">
+                <button onclick="openArea()" class="miner_icon_ctn">
                   <img
-                    src="./images/truck.png"
-                    alt="mining_truck"
-                    class="mining_truck_img"
+                    src="./images/ranking.png"
+                    alt="rank_icon"
+                    class="miner_icon"
                   />
-                </div>
-                <div class="miner_mid">
-                  <div class="miner_mid_item">
-                    <p class="miner_mid_text text_uppercase">speed:</p>
-                    <p class="miner_mid_text text_uppercase">
-                      <span id="miningSpeed" class="miner_mid_number"></span>
-                      /hour
-                    </p>
-                  </div>
-                  <div class="miner_mid_item">
-                    <p class="miner_mid_text text_uppercase">engine:</p>
-                    <p class="miner_mid_number">
-                      +<span id="engineBoost" class="miner_mid_number"></span>%
-                    </p>
-                  </div>
-                  <div class="miner_mid_item">
-                    <p class="miner_mid_text text_uppercase">storage:</p>
-                    <p class="miner_mid_text text_uppercase">
-                      <span id="maxMining" class="miner_mid_number"></span>
-                      /time
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="miner_bot">
-                <button
-                  id="claimButton"
-                  onclick="claimCoins()"
-                  class="miner_btn"
-                >
-                  <img
-                    src="./images/time.png"
-                    alt="clock_icon"
-                    class="miner_btn_img"
-                  />
-                  <p class="miner_btn_text"></p>
                 </button>
+                <p class="miner_icon_text">Rank</p>
               </div>
             </div>
+          </div>
+          <div class="miner_mid_container">
+            <div class="miner_mid_ctn">
+              <div class="miner_text_ctn">
+                <p class="miner_text">Minner</p>
+                <p class="miner_current_mining" id="currentMining"></p>
+              </div>
+              <div class="mining_truck_img_ctn">
+                <img
+                  src="./images/truck.png"
+                  alt="mining_truck"
+                  class="mining_truck_img"
+                />
+              </div>
+              <div class="miner_mid">
+                <div class="miner_mid_item">
+                  <p class="miner_mid_text text_uppercase">speed:</p>
+                  <p class="miner_mid_text text_uppercase">
+                    <span id="miningSpeed" class="miner_mid_number"></span>
+                    /hour
+                  </p>
+                </div>
+                <div class="miner_mid_item">
+                  <p class="miner_mid_text text_uppercase">engine:</p>
+                  <p class="miner_mid_number">
+                    +<span id="engineBoost" class="miner_mid_number"></span>%
+                  </p>
+                </div>
+                <div class="miner_mid_item">
+                  <p class="miner_mid_text text_uppercase">storage:</p>
+                  <p class="miner_mid_text text_uppercase">
+                    <span id="maxMining" class="miner_mid_number"></span>
+                    /time
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button id="claimButton" onclick="claimCoins()" class="miner_btn">
+              <img
+                src="./images/time.png"
+                alt="clock_icon"
+                class="miner_btn_img"
+              />
+              <p class="miner_btn_text"></p>
+            </button>
           </div>
         </div>
 
@@ -1376,38 +1389,8 @@
       </div>
     </div>
 
-    <script>
-      function navigateToPage(pageNumber) {
-        document
-          .querySelectorAll(".introduction_page .page")
-          .forEach((page) => {
-            page.classList.remove("active");
-          });
-        document
-          .querySelector(".introduction_page .page" + pageNumber)
-          .classList.add("active");
-      }
-
-      function claim() {
-        localStorage.setItem("hasClaimed", "true");
-        showMainPage();
-      }
-
-      function showMainPage() {
-        document.querySelector(".introduction_page").classList.remove("active");
-        document.querySelector(".main_page").classList.add("active");
-      }
-
-      document.addEventListener("DOMContentLoaded", function () {
-        if (localStorage.getItem("hasClaimed") === "true") {
-          showMainPage();
-        } else {
-          document.querySelector(".introduction_page").classList.add("active");
-          navigateToPage(1); // Bắt đầu từ trang 1
-        }
-      });
-    </script>
-    <script src="./js/main.js"></script>
+    <script src="./js/introduction.js"></script>
+    <script src="./js/tabNavigation.js"></script>
     <script src="./js/miner.js"></script>
     <script src="./js/bottomSheet.js"></script>
   </body>
