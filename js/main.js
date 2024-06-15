@@ -1,12 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-  if (!localStorage.getItem("hasVisited")) {
-    localStorage.setItem("hasVisited", "true");
-    window.location.href = "/introduction.html";
-  } else {
-    return;
-  }
-});
-
 // Tab navigation
 const tabs = document.querySelectorAll(".tab_btn");
 const all_content = document.querySelectorAll(".content");
